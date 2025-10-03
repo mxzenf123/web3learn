@@ -1,8 +1,8 @@
 const NodeRSA = require('node-rsa');
-const { generateKeyPairSync, publicEncrypt, privateDecrypt } = require('crypto')
+const { generateKeyPairSync, publicEncrypt, privateDecrypt } = require('crypto');
 
-let key = new NodeRSA({ b: 1024 })
-    key.setOptions({ encryptionScheme:'pkcs1'})
+let key = new NodeRSA({ b: 1024 });
+key.setOptions({ encryptionScheme:'pkcs1'});
     
 let pubkey = key.exportKey('public') //生成公钥，发给前端用于数据加密
 let privkey = key.exportKey('private')//生成私钥，用于数据解密
