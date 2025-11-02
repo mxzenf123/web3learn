@@ -14,6 +14,12 @@ contract Bank{
         owner = msg.sender;
     }
 
+    event notExistsFunc(string);
+
+    fallback() external payable{
+        emit notExistsFunc('called not exists function');
+    }
+
     // 接收转账
     receive() external payable{
         accounts[msg.sender] += msg.value;
